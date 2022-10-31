@@ -1,22 +1,24 @@
-#define _CRT_SECURE_NO_WARNINGS    // scanf 보안 경고로 인한 컴파일 에러 방지
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main()
 {
-    int num1;
+	char memu;
 
-    scanf("%d", &num1);    // 값을 입력받음
+	scanf("%c", &memu);
 
-    // switch의 case에서 break 삭제
-    switch (num1)
-    {
-    case 1:    // 1일 때는 아래 case 2, default가 모두 실행됨
-        printf("1입니다.\n");
-    case 2:    // 2일 때는 아래 default까지 실행됨
-        printf("2입니다.\n");
-    default:
-        printf("default\n");
-    }
+	switch (memu)
+	{
+	case 'f': printf("환타");
+		break;
+	case 'c': printf("콜라");
+		break;
+	case 'p': printf("포카리스웨트");
+		break;
+	default: printf("판매하지 않는 메뉴");
+		break;
 
-    return 0;
+	}
+
+	return 0;
 }
