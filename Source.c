@@ -1,12 +1,19 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main()
 {
-    unsigned char i = 1;
-    while (i != 0)  // i < 129 -> 128 is 1000 0000 , i's Max 128
+    int input;
+    scanf("%d", &input);
+
+    while (input>=1200)
     {
-        printf("%u\n", i);
-        i <<= 1;
+        input -= 1200;
+        printf("%d\n", input);
     }
+    //for (scanf("%d", &input); input > 0; input -= 1200)
+    //{
+    //    printf("%d\n", input);
+    //}
     return 0;
 }
