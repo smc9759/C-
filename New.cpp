@@ -2,17 +2,25 @@
 
 int main()
 {
-    int numArr[10] = { 11, 22, 33, 44, 55, 66, 77, 88, 99, 110 };    // 크기가 10인 int형 배열
+	int decimal = 13;
+	int binary[20] = {0,};
 
-    for (int i = 0; i < sizeof(numArr) / sizeof(int); i++)    // 배열의 요소 개수만큼 반복
-    {
-        numArr[i] *= 2;    // 배열의 요소에 2를 곱해서 다시 요소에 저장
-    }
+	int position = 0;
+	while(1)
+	{
+		binary[position] = decimal %2;
+		decimal = decimal /2;
 
-    for (int i = 0; i < sizeof(numArr) / sizeof(int); i++)    // 배열의 요소 개수만큼 반복
-    {
-        printf("%d\n", numArr[i]);
-    }
+		position++;
+
+		if(decimal ==0)
+			break;
+	}
+	//sizeof(binary) / sizeof(int) -1
+	for (int i = position-1; i>=0; i--)
+	{
+		printf("%d",binary[i]);
+	}
 
     return 0;
 }
