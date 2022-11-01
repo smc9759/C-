@@ -16,8 +16,9 @@ int main()
 		if(decimal ==0)
 			break;
 	}
-	//sizeof(binary) / sizeof(int) -1
-	for (int i = position-1; i>=0; i--)
+	//position-1
+	//sizeof(binary) / sizeof(int) -1 -> 원래 binary는 0으로 초기화되어있고, 길이가 4밖에 안되서 1101을 ㅂ제외한 나머지값은 0이다. 이걸 출력하는 것은 불필요하다
+	for (int i = sizeof(binary) / sizeof(int) -1; i>=0; i--)
 	{
 		printf("%d",binary[i]);
 	}
