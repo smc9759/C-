@@ -3,21 +3,21 @@
 
 int main()
 {
-    int i = 1;
+	int num1,num2;
 
-    for (;;)
+	scanf("%d", &num1);
+	scanf("%d", &num2);
+
+    for (int i = num1; i <= num2; i++)
     {
-        if ( i % 10 != 3)
-		{
-			i++;
-			continue;
-		}
-        if ( i == 113)
-			break;
-
-        printf("%d ", i);
-        i++;
+        if (i % 5 == 0 && i % 11 == 0)
+            printf("FizzBuzz\n");
+        else if (i % 5 == 0)
+            printf("Fizz\n");
+        else if (i % 11 == 0)
+            printf("Buzz\n");
+        else
+            printf("%d\n", i);
     }
-
     return 0;
 }
