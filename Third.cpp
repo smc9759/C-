@@ -1,12 +1,32 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include <Turboc.h>
 
 void main()
 {
-	for (int i = 1; i<= 100; i++)
-	{
-		if (i % 2 != 0)
-			continue;
+	int count;
+	scanf("%d", &count);
+	int i = 1;
 
-		printf("%d\n", i);
+	while(1)
+	{
+		i++;
+
+		if ( i % 2 != 0)
+			continue;
+		/*
+		count--;
+
+		if (count == 0)
+			break;
+		*/
+		printf("%d\n",i);
+
+		if (i == count)
+		break;
+
+
+		
 	}
+
+
 }
