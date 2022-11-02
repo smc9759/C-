@@ -1,10 +1,12 @@
 #include <stdio.h>
 
-void main()
+int main()
 {
-	char *s1 = "Hello";
+    char s1[10];     // 크기가 10인 char형 배열 선언
 
-	printf("%s", s1);
+    s1 = "Hello";    // 이미 선언된 배열에 문자열을 할당하면 컴파일 에러 발생
 
-	return 0;
+    printf("%s\n", s1);    // Hello: %s로 문자열 출력
+
+    return 0;
 }
