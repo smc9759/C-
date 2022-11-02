@@ -2,21 +2,34 @@
 
 int main()
 {
-	int decimal = 0;
-	int binary[4] = { 1, 1, 0, 1 };    // 1101 순서대로 저장됨
+    int matrix[8][8] = {
+        {  1,  2,  3,  4,  5,  6,  7,  8 },
+        {  9, 10, 11, 12, 13, 14, 15, 16 },
+        { 17, 18, 19, 20, 21, 22, 23, 24 },
+        { 25, 26, 27, 28, 29, 30, 31, 32 },
+        { 33, 34, 35, 36, 37, 38, 39, 40 },
+        { 41, 42, 43, 44, 45, 46, 47, 48 },
+        { 49, 50, 51, 52, 53, 54, 55, 56 },
+        { 57, 58, 59, 60, 61, 62, 63, 64 }
+    };
 
-	for (int i = 0; i < 4; i++)
-	{
-		if (3 - i != 0)
-		{
-			decimal += binary[i] * 2 * (3 - i);
-		}
-		else
-		{
-			decimal += binary[i];
-		}
-	}
-	printf("%d\n", decimal);
+    int col = sizeof(matrix) / sizeof(matrix[0]);
+    int row = sizeof(matrix[0]) / sizeof(int);
 
-	return 0;
+    for (int i = 0; i < col; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            if (i == j) printf("%d ", matrix[i][j]);
+        }
+    }
+    
+
+    printf("\d");
+
+    for (int i = 0; i < col; i++)
+    {
+        printf("%d ", matrix[i][i]);
+    }
+        return 0;
 }
