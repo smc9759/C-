@@ -1,35 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>    // malloc, free 함수가 선언된 헤더 파일
 
 int main()
 {
-    int matrix[8][8] = {
-        {  1,  2,  3,  4,  5,  6,  7,  8 },
-        {  9, 10, 11, 12, 13, 14, 15, 16 },
-        { 17, 18, 19, 20, 21, 22, 23, 24 },
-        { 25, 26, 27, 28, 29, 30, 31, 32 },
-        { 33, 34, 35, 36, 37, 38, 39, 40 },
-        { 41, 42, 43, 44, 45, 46, 47, 48 },
-        { 49, 50, 51, 52, 53, 54, 55, 56 },
-        { 57, 58, 59, 60, 61, 62, 63, 64 }
-    };
+    int* numPtr = malloc(sizeof(int) * 10);    // int 10개 크기만큼 동적 메모리 할당
+    // *numPtr = { &int1, &int2, &int3, &int4, &int5, &int6 }
+    numPtr[0] = 10;    // 배열처럼 인덱스로 접근하여 값 할당
+    numPtr[9] = 20;    // 배열처럼 인덱스로 접근하여 값 할당
 
-    int col = sizeof(matrix) / sizeof(matrix[0]);
-    int row = sizeof(matrix[0]) / sizeof(int);
+    printf("%d\n", numPtr[0]);    // 배열처럼 인덱스로 접근하여 값 출력
+    printf("%d\n", numPtr[9]);    // 배열처럼 인덱스로 접근하여 값 출력
 
-    for (int i = 0; i < col; i++)
-    {
-        for (int j = 0; j < row; j++)
-        {
-            if (i == j) printf("%d ", matrix[i][j]);
-        }
-    }
-    
+    free(numPtr);    // 동적으로 할당한 메모리 해제
 
-    printf("\d");
-
-    for (int i = 0; i < col; i++)
-    {
-        printf("%d ", matrix[i][i]);
-    }
-        return 0;
+    return 0;
 }
