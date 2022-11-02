@@ -7,8 +7,14 @@ int main()
 
 	for (int i = 0; i < 4; i++)
 	{
-		if (3 - i != 0)  decimal += binary[i] <<(3 - i);
-		else decimal += binary[i];
+		if (3 - i != 0)
+		{
+			decimal += binary[i] * 2 * (3 - i);
+		}
+		else
+		{
+			decimal += binary[i];
+		}
 	}
 	printf("%d\n", decimal);
 
