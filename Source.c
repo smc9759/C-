@@ -1,19 +1,16 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 
 int main()
 {
-    int input;
-    scanf("%d", &input);
+	int decimal = 0;
+	int binary[4] = { 1, 1, 0, 1 };    // 1101 순서대로 저장됨
 
-    while (input>=1200)
-    {
-        input -= 1200;
-        printf("%d\n", input);
-    }
-    //for (scanf("%d", &input); input > 0; input -= 1200)
-    //{
-    //    printf("%d\n", input);
-    //}
-    return 0;
+	for (int i = 0; i < 4; i++)
+	{
+		if (3 - i != 0)  decimal += binary[i] <<(3 - i);
+		else decimal += binary[i];
+	}
+	printf("%d\n", decimal);
+
+	return 0;
 }
