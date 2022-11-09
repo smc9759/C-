@@ -1,24 +1,67 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
+#include <stdlib.h>
 
+int main()
+{
+    int m, n;
+    scanf("%d %d", &m, &n);
+    int row = m; int col = n;
+    char** matrix = malloc(sizeof(char*) * row);
 
-int main(void) {
-
-    int count;
-    scanf("%d", &count);
-
-    for (int i = 0; i < count; i++)
-    {//(int j = count -1; j-i>0;j--)
-        for (int j = count -1; j > i; j--) //공백을 count-1-i만큼 만든다 
-        {
-            printf(" ");
-        }
-        for (int k = 0; k < 2*i-1; k++)// 별을 2n-1개 만든다 k-count <0 2i-1-count<0 count +1 -2i >0 count
-        {
-            printf("*");
-        }
-        printf("\n");
+    for (int i = 0; i < row; i++)
+    {
+        matrix[i] = malloc(sizeof(char) * (n + 1));
     }
+    
+    
+    for (int j = 0; j < row; j++)
+    {
+        scanf("%s", matrix[j]);
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (matrix[i][j] == '.') matrix[i][j] = '0';
+        }
+        
+    }
+
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < col; j++)
+        {
+            if (matrix[i][j] == '*')
+            {
+                if (j - 1 >= 0 && matrix[i][j - 1] != '*') matrix[i][j - 1] += 1;
+                else if (j + 1 < col && matrix[i][j + 1] != '*') matrix[i][j + 1] += 1;
+            }
+        }
+        //대각선 추가
+    }
+    for (int i = 0; i < col; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            if (matrix[j][i] == '*')
+            {
+                if (j - 1 >= 0 && matrix[j - 1][i] != '*') matrix[j - 1][i] += 1;
+                else if (j + 1 < col && matrix[j + 1][i] != '*') matrix[j + 1][i] += 1;
+            }
+        }
+
+    }//matrix[j-1] != '*'
+                //else if (i - 1 > 0) matrix[i - 1][j] += 1;
+                //else if (i + 1 < m) matrix[i + 1][j] += 1;
+
+    for (int i = 0; i < row; i++)
+    {
+        printf("%s\n", matrix[i]);
+    }
+
+    //printf("%c ", matrix[2][3]);
 
     return 0;
 }
